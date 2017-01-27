@@ -154,17 +154,17 @@
 	<!-- Contact -->
 	<div class="contact">
 		<div class="container">
-			<form class="contact_form">
+			<form class="contact_form" action="http://npsystem.in/sendForgewellMail.php" method="post">
 
 				<div class="message">
 					<div class="col-md-6 col-sm-6 grid_6 c1">
-						<input type="text" class="text" placeholder="Name" required="" >
-						<input type="text" class="text" placeholder="Email" required="" >
-						<input type="text" class="text" placeholder="Phone" required="" >
+						<input type="text" class="text" name="nam" placeholder="Name" required >
+						<input type="text" class="text" name="mail" placeholder="Email" required >
+						<input type="text" class="text" name="phno" placeholder="Phone" required >
 					</div>
 
 					<div class="col-md-6 col-sm-6 grid_6 c1">
-						<textarea placeholder="Message" required=""></textarea>
+						<textarea placeholder="Message" name="msg" required></textarea>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
