@@ -351,7 +351,7 @@
 	    } else {
 		document.getElementById('emailErrorMsg').style.display = 'none';
 	    }
-	    if(/^\d{10}$/.test(ph)) {
+	    if("/^\d{10}$/".test(ph)) {
 		document.getElementById('phnoErrorMsg').style.display = 'block';
 		return false;
 	    } else {
