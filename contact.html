@@ -161,9 +161,9 @@
 					<div class="col-md-6 col-sm-6 grid_6 c1">
 						<input type="text" class="text" name="nam" placeholder="Name" required >
 						<input type="text" class="text" name="mail" placeholder="Email" required >
-						<div style="text-align:right;" id="emailErrorMsg" style="display:none"> invalid email</div>
+						<div id="emailErrorMsg" style="display:none;text-align:right;color:red;"> invalid email</div>
 						<input type="text" class="text" name="phno" placeholder="Phone" required >
-						<div id="phnoErrorMsg" style="display:none"> invalid phone number</div>
+						<div id="phnoErrorMsg" style="display:none;text-align:right;color:red;"> invalid phone number</div>
 					</div>
 
 					<div class="col-md-6 col-sm-6 grid_6 c1">
@@ -351,7 +351,7 @@
 	    if(!x.match(emailValidPattern)) {
 		//var msg ="Not a valid e-mail address" + ph.value.match(phoneno);
 		document.getElementById('emailErrorMsg').style.display = 'block';
-		document.getElementById('emailErrorMsg').style.color = 'red';
+		//document.getElementById('emailErrorMsg').style.color = 'red';
 		flag1=1;
 	    } else {
 		document.getElementById('emailErrorMsg').style.display = 'none';
@@ -359,7 +359,7 @@
 	    }
 	    if(!ph.match(phoneno)) {
 		document.getElementById('phnoErrorMsg').style.display = 'block';
-		document.getElementById('phnoErrorMsg').style.color = 'red';
+		//document.getElementById('phnoErrorMsg').style.color = 'red';
 		flag2=1;
 	    } else {
 		document.getElementById('phnoErrorMsg').style.display = 'none';
