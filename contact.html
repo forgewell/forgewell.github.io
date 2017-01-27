@@ -344,21 +344,27 @@
 	    var phoneno = /^\d{10}$/;
 	    var atpos = x.indexOf("@");
 	    var dotpos = x.lastIndexOf(".");
+	    var flag=0;
 	    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
 		//var msg ="Not a valid e-mail address" + ph.value.match(phoneno);
 		document.getElementById('emailErrorMsg').style.display = 'block';
-		return false;
+		flag=1;
 	    } else {
 		document.getElementById('emailErrorMsg').style.display = 'none';
+		flag=0;
 	    }
 	    if(!ph.match(phoneno)) {
 		document.getElementById('phnoErrorMsg').style.display = 'block';
-		return false;
+		flag=1;
 	    } else {
 		document.getElementById('phnoErrorMsg').style.display = 'none';
+		flag=0;
 	    }
-		
-	    return true;
+	    if(flag==1) {
+		    return false;
+	    } else {
+	    	return true;
+	    }
 		
 	}
 	</script>
