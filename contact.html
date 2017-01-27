@@ -342,11 +342,13 @@
 	    var x = document.forms["myForm"]["mail"].value;
 	    var ph = document.forms["myForm"]["phno"].value;
 	    var phoneno = /^\d{10}$/;
+	    var emailValidPattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 	    var atpos = x.indexOf("@");
 	    var dotpos = x.lastIndexOf(".");
 	    var flag1=0;
 	    var flag2=0;
-	    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+	    //if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+	    if(!x.match(emailValidPattern)) {
 		//var msg ="Not a valid e-mail address" + ph.value.match(phoneno);
 		document.getElementById('emailErrorMsg').style.display = 'block';
 		flag1=1;
