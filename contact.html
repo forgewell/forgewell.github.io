@@ -154,12 +154,13 @@
 	<!-- Contact -->
 	<div class="contact">
 		<div class="container">
-			<form class="contact_form" action="http://npsystem.in/sendForgewellMail.php" method="post">
+			<form name="myForm" onsubmit="return validateForm();"
+			      class="contact_form" action="http://npsystem.in/sendForgewellMail.php" method="post">
 
 				<div class="message">
 					<div class="col-md-6 col-sm-6 grid_6 c1">
 						<input type="text" class="text" name="nam" placeholder="Name" required >
-						<input type="email" class="text" name="mail" placeholder="Email" required >
+						<input type="text" class="text" name="mail" placeholder="Email" required >
 						<input type="text" class="text" name="phno" placeholder="Phone" required >
 					</div>
 
@@ -333,6 +334,17 @@
 			};
 			$().UItoTop({ easingType: 'easeOutQuart' });
 		});
+	</script>
+	<script>
+	function validateForm() {
+	    var x = document.forms["myForm"]["mail"].value;
+	    var atpos = x.indexOf("@");
+	    var dotpos = x.lastIndexOf(".");
+	    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+		alert("Not a valid e-mail address");
+		return false;
+	    }
+	}
 	</script>
 	<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 	<!-- //Slide-To-Top JavaScript -->
