@@ -342,11 +342,8 @@
 	    var phoneno = /^\d{10}$/;
 	    var atpos = x.indexOf("@");
 	    var dotpos = x.lastIndexOf(".");
-	    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length || !(ph.value.match(phoneno))) {
+	    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
 		var msg ="Not a valid e-mail address";
-		if(!(ph.value.match(phoneno))) {
-			msg = msg + " and phone number";  
-	        }
 		alert(msg);
 		return false;
 	    }
