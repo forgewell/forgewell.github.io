@@ -224,8 +224,9 @@
 				</div>
 				<div class="col-md-3 col-sm-3 subscribe">
 					<h4>Newsletter</h4>
-					<form class="newsletter">
-						<input type="text" class="email" placeholder="Email" required="" >
+					<form class="newsletter" name="subscriptionForm" onsubmit="return validateSubscriptionEmail();"
+			       action="http://npsystem.in/sendForgewellMail.php" method="post">
+						<input type="text" class="email" placeholder="Email" name="mail" required >
 						<input type="submit" class="submit" value="">
 					</form>
 				</div>
@@ -371,6 +372,16 @@
 	    	return true;
 	    }
 		
+	}
+		
+	function validateSubscriptionEmail() {
+	    var x = document.forms["subscriptionForm"]["mail"].value;
+	    var emailValidPattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+	    if(!x.match(emailValidPattern)) {
+		return false;
+	    } else {
+		return true;
+	    }
 	}
 	</script>
 	<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
