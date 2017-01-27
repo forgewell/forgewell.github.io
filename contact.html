@@ -352,7 +352,7 @@
 		document.getElementById('emailErrorMsg').style.display = 'none';
 		return true;
 	    }
-	    if(ph.value.match(phoneno)) {
+	    if(if (/^\d{10}$/.test(ph)) {
 		document.getElementById('phnoErrorMsg').style.display = 'block';
 		return false;
 	    } else {
