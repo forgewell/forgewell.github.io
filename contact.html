@@ -348,7 +348,18 @@
 		//var msg ="Not a valid e-mail address" + ph.value.match(phoneno);
 		document.getElementById('emailErrorMsg').style.display = 'block';
 		return false;
+	    } else {
+		document.getElementById('emailErrorMsg').style.display = 'none';
+		return true;
 	    }
+	    if(!ph.value.match(phoneno)) {
+		document.getElementById('phnoErrorMsg').style.display = 'block';
+		return false;
+	    } else {
+		document.getElementById('phnoErrorMsg').style.display = 'none';
+		return true; 
+	    }
+		
 	}
 	</script>
 	<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
