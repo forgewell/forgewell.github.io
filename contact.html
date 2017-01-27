@@ -341,7 +341,7 @@
 	function validateForm() {
 	    var x = document.forms["myForm"]["mail"].value;
 	    var ph = document.forms["myForm"]["phno"].value;
-	    var phoneno = /^\d$/;
+	    var phoneno = /^(([0-9]*)|(([0-9]*)\.([0-9]*)))$/;
 	    var emailValidPattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 	    var atpos = x.indexOf("@");
 	    var dotpos = x.lastIndexOf(".");
