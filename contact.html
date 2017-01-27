@@ -161,8 +161,9 @@
 					<div class="col-md-6 col-sm-6 grid_6 c1">
 						<input type="text" class="text" name="nam" placeholder="Name" required >
 						<input type="text" class="text" name="mail" placeholder="Email" required >
-						<div id="emailErrorMsg" style="display:block"> invalid email</div>
+						<div id="emailErrorMsg" style="display:none"> invalid email</div>
 						<input type="text" class="text" name="phno" placeholder="Phone" required >
+						<div id="phnoErrorMsg" style="display:none"> invalid phone number</div>
 					</div>
 
 					<div class="col-md-6 col-sm-6 grid_6 c1">
@@ -344,8 +345,8 @@
 	    var atpos = x.indexOf("@");
 	    var dotpos = x.lastIndexOf(".");
 	    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
-		var msg ="Not a valid e-mail address" + ph.value.match(phoneno);
-		alert(msg);
+		//var msg ="Not a valid e-mail address" + ph.value.match(phoneno);
+		document.getElementById('emailErrorMsg').style.display = 'block';
 		return false;
 	    }
 	}
