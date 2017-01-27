@@ -352,7 +352,7 @@
 		document.getElementById('emailErrorMsg').style.display = 'none';
 		return true;
 	    }
-	    if(!ph.value.match(phoneno)) {
+	    if(ph.value.match(phoneno)) {
 		document.getElementById('phnoErrorMsg').style.display = 'block';
 		return false;
 	    } else {
