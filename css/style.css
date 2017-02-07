@@ -181,12 +181,12 @@ span.glyphicon.glyphicon-envelope, span.glyphicon.glyphicon-earphone {
 .logo {
 	width: 50%;
 	float: left;
-	font-family: 'Kadwa', serif;
+	font-family: 'calibri', serif;  /*'Kadwa', serif;*/
 }
 .logo a {
 	font-size: 30px;
 	font-weight: 700;
-	color: #9E9E9E;
+	color: #0A7AA8;
 }
 .logo a:hover {
 	color: #FFFFFF;
