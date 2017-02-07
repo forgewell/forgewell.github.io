@@ -154,22 +154,33 @@
 	<!-- Contact -->
 	<div class="contact">
 		<div class="container">
-			<form class="contact_form">
+			<form name="myForm" onsubmit="return validateForm();"
+			      class="contact_form" action="http://npsystem.in/sendForgewellMail.php" method="post">
 
 				<div class="message">
 					<div class="col-md-6 col-sm-6 grid_6 c1">
-						<input type="text" class="text" placeholder="Name" required="" >
-						<input type="text" class="text" placeholder="Email" required="" >
-						<input type="text" class="text" placeholder="Phone" required="" >
+						<input type="text" class="text" name="nam" placeholder="Name" required >
+						<input type="text" class="text" name="mail" placeholder="Email" required >
+						<div id="emailErrorMsg" class="about-us-info-text" style="display:none;text-align:right;color:red;margin-top: -12px">*Invalid email id</div>
+						<input type="text" class="text" name="phno" placeholder="Phone" required >
+						<div id="phnoErrorMsg" class="about-us-info-text" style="display:none;text-align:right;color:red;margin-top: -12px">*Invalid phone number</div>
 					</div>
 
 					<div class="col-md-6 col-sm-6 grid_6 c1">
-						<textarea placeholder="Message" required=""></textarea>
+						<textarea placeholder="Message" name="msg" required></textarea>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
 
 				<input type="submit" class="more_btn" value="Send Message">
+				<!--added new
+				<p><button name="submit" type="submit" class="btn btn-theme btn-block" 
+					   data-error-message="Error!" data-sending-message="Message Sent" 
+					   data-ok-message="Message Sent">
+					<i class="fa fa-location-arrow"></i>Send Message</button>
+				</p>
+				<input type="hidden" name="action" value="1" />
+				added new END-->
 			</form>
 		</div>
 	</div>
@@ -213,8 +224,9 @@
 				</div>
 				<div class="col-md-3 col-sm-3 subscribe">
 					<h4>Newsletter</h4>
-					<form class="newsletter">
-						<input type="text" class="email" placeholder="Email" required="" >
+					<form class="newsletter" name="subscriptionForm" onsubmit="return validateSubscriptionEmail();"
+			       action="http://npsystem.in/sendForgewellMail.php" method="post">
+						<input type="text" class="email" placeholder="Email" name="mail" required >
 						<input type="submit" class="submit" value="">
 					</form>
 				</div>
@@ -325,6 +337,52 @@
 			};
 			$().UItoTop({ easingType: 'easeOutQuart' });
 		});
+	</script>
+	<script>
+	function validateForm() {
+	    var x = document.forms["myForm"]["mail"].value;
+	    var ph = document.forms["myForm"]["phno"].value;
+	    var phoneno = /^(([0-9]*)|(([0-9]*)\.([0-9]*)))$/;
+	    var emailValidPattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+	    var atpos = x.indexOf("@");
+	    var dotpos = x.lastIndexOf(".");
+	    var flag1=0;
+	    var flag2=0;
+	    //if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+	    if(!x.match(emailValidPattern)) {
+		//var msg ="Not a valid e-mail address" + ph.value.match(phoneno);
+		document.getElementById('emailErrorMsg').style.display = 'block';
+		//document.getElementById('emailErrorMsg').style.color = 'red';
+		flag1=1;
+	    } else {
+		document.getElementById('emailErrorMsg').style.display = 'none';
+		flag1=0;
+	    }
+	    if(!ph.match(phoneno)) {
+		document.getElementById('phnoErrorMsg').style.display = 'block';
+		//document.getElementById('phnoErrorMsg').style.color = 'red';
+		flag2=1;
+	    } else {
+		document.getElementById('phnoErrorMsg').style.display = 'none';
+		flag2=0;
+	    }
+	    if(flag1==1 || flag2==1) {
+		    return false;
+	    } else {
+	    	return true;
+	    }
+		
+	}
+		
+	function validateSubscriptionEmail() {
+	    var x = document.forms["subscriptionForm"]["mail"].value;
+	    var emailValidPattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+	    if(!x.match(emailValidPattern)) {
+		return false;
+	    } else {
+		return true;
+	    }
+	}
 	</script>
 	<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 	<!-- //Slide-To-Top JavaScript -->
